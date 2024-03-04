@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          spacing: {
+            13: '3.35rem',
+          },
+          fontFamily: {
+            inter: ['Inter'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <section class="pt-5">
+    <div class="max-w-3xl mx-auto">
+        <h1 class="p-2 text-4xl text-center font-bold underline bg-gradient-to-b from-zinc-500 via-red-500 to-zinc-500
+          bg-clip-text text-transparent">
+          Belajar Tailwind CSS
+        </h1>
+        <p class="p-1 font-inter text-center text-white text-[17px] bg-[#e94242]">
+            kerangka kerja (framework) CSS yang di dalamnya terdapat sekumpulan utility classes untuk membangun antarmuka kustom dengan cepat
+        </p>
+    </div>
+  </section>
+  <div class="opacity-95 rounded-lg shadow-xl shadow-red-600 my-10 max-w-xl h-96 bg-red-200 mx-auto bg-cover" style="background-image: url('./img/photo-1493997181344-712f2f19d87a.jpeg');">
+  </div>
+  <section class="my-10">
+    <div class="max-w-3xl mx-auto">
+        <h1 class=" p-2 text-4xl text-center font-bold underline">
+            Belajar Pseudo-class 
+        </h1>
+        <p class="p-1 font-inter text-center text-red-500 text-[17px]">
+            pseudo-class seperti hover, active, focus, dll.
+        </p>
+    </div>
+    <button class="my-5 bg-red-700 px-5 py-2 rounded-full text-white font-semibold font-inter
+        block mx-auto hover:bg-red-400 active:bg-red-700 focus:ring-red-600"> Simpan 
+    </button>
+    <a href="#" class="group block max-w-xs mx-auto rounded-lg p-6 bg-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-red-500 hover:ring-red-600">
+        <div class="flex items-center space-x-3">
+          <h3 class="text-slate-900 group-hover:text-white text-sm font-semibold">New project</h3>
+        </div>
+        <p class="text-slate-500 group-hover:text-white text-sm selection:bg-pink-300 selection:text-slate-900">Create a new project from a variety of starting templates.</p>
+    </a>
+  </section>
+    <div class="max-w-3xl mx-auto">
+        <h1 class=" p-2 text-4xl text-center font-bold underline">
+            Belajar Pseudo-Element 
+        </h1>
+        <p class="p-1 font-inter text-center text-red-500 text-[17px]">
+            pseudo-element seperti First-line and first-letter, place holder, before & after
+        </p>
+    </div>
+    <div class="my-5 max-w-3xl mx-auto border p-3">
+        <p class="first-line:uppercase first-line:tracking-widest
+            first-letter:text-7xl first-letter:font-bold first-letter:text-slate-900
+            first-letter:mr-3 first-letter:float-left font-inter
+            ">
+            Well, let me tell you something, funny boy. Y'know that little stamp, the one
+            that says "New York Public Library"? Well that may not mean anything to you,
+            but that means a lot to me. One whole hell of a lot.
+
+            <br> Sure, go ahead, laugh if you want to. I've seen your 
+            type before: Flashy, making the scene, flaunting convention. 
+            Yeah, I know what you're thinking. What's this guy making such a big stink 
+            about old library books? Well, let me give you a hint, junior.
+        </p>
+    </div>
+  </section>
+
+
+</body>
+</html>
