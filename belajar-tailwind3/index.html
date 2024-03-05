@@ -1,0 +1,163 @@
+<!doctype html>
+<html class="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          spacing: {
+            13: '3.35rem',
+          },
+          fontFamily: {
+            inter: ['Inter'],
+          },
+          animation: {
+            'spin-slow': 'spin 3s linear infinite',
+            wiggle: 'wiggle 1s ease-in-out infinite',
+          },
+          keyframes: {
+            wiggle: {
+              '0%, 100%': { transform: 'rotate(-8deg)' },
+              '50%': { transform: 'rotate(8deg)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    #toggle:checked ~ label div.toggle-circle {
+      @apply translate-x-3;
+    }
+  </style>
+</head>
+<body class="dark:bg-slate-900 dark:text-sky-100">
+
+  <section class="pt-5">
+    <div class="flex justify-end p-3">
+      <span class="mr-1">Light</span>
+      <input type="checkbox" id="toggle" class="hidden">
+      <label for="toggle">
+        <div class="w-9 h-5 bg-slate-500 rounded-full flex items-center p-1 cursor-pointer">
+          <div class="w-4 h-4 bg-white rounded-full toggle-circle"></div>
+        </div>
+      </label>
+      <span class="ml-1">Dark</span>
+    </div>
+    <div class="max-w-3xl mx-auto">
+        <h1 class="p-2 text-4xl text-center font-bold underline bg-gradient-to-b from-zinc-500 via-sky-500 to-zinc-500
+          bg-clip-text text-transparent">
+          Belajar Tailwind CSS
+        </h1>
+        <p class="p-1 font-inter text-center text-white text-[17px] bg-[#42a6e9]">
+            kerangka kerja (framework) CSS yang di dalamnya terdapat sekumpulan utility classes untuk membangun antarmuka kustom dengan cepat
+        </p>
+    </div>
+  </section>
+  <div class="opacity-95 rounded-lg shadow-xl shadow-blue-600 my-10 max-w-xl h-96 bg-blue-200 mx-auto bg-cover bg-center" style="background-image: url('./img/download.png');">
+  </div>
+  <section class="my-10">
+    <div class="max-w-3xl mx-auto">
+        <h1 class=" p-2 text-4xl text-center font-bold underline">
+            Belajar Pseudo-class 
+        </h1>
+        <p class="p-1 font-inter text-center text-blue-500 text-[17px]">
+            pseudo-class seperti hover, active, focus, dll.
+        </p>
+    </div>
+    <button class="my-5 bg-blue-700 px-5 py-2 rounded-full text-white font-semibold font-inter
+        block mx-auto hover:bg-blue-400 active:bg-blue-700 focus:ring-blue-600
+        dark:bg-slate-600 dark:text-slate-200 dark:hover:text-slate-200 dark:hover:bg-slate-400"> Simpan 
+    </button>
+    <a href="#" class="group block max-w-xs mx-auto rounded-lg p-6 bg-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-400 hover:ring-sky-600">
+        <div class="flex items-center space-x-3">
+          <h3 class="text-slate-900 group-hover:text-white text-sm font-semibold">New project</h3>
+        </div>
+        <p class="text-slate-500 group-hover:text-white text-sm selection:bg-pink-300 selection:text-slate-900">Create a new project from a variety of starting templates.</p>
+    </a>
+  </section>
+    <div class="max-w-3xl mx-auto">
+        <h1 class=" p-2 text-4xl text-center font-bold underline">
+            Belajar Pseudo-Element 
+        </h1>
+        <p class="p-1 font-inter text-center text-blue-500 text-[17px]">
+            pseudo-element seperti First-line and first-letter, place holder, before & after
+        </p>
+    </div>
+    <div class="my-5 max-w-3xl mx-auto border p-3">
+        <p class="first-line:uppercase first-line:tracking-widest
+            first-letter:text-7xl first-letter:font-bold first-letter:text-slate-900
+            first-letter:mr-3 first-letter:float-left font-inter
+            ">
+            Well, let me tell you something, funny boy. Y'know that little stamp, the one
+            that says "New York Public Library"? Well that may not mean anything to you,
+            but that means a lot to me. One whole hell of a lot.
+
+            <br> Sure, go ahead, laugh if you want to. I've seen your 
+            type before: Flashy, making the scene, flaunting convention. 
+            Yeah, I know what you're thinking. What's this guy making such a big stink 
+            about old library books? Well, let me give you a hint, junior.
+        </p>
+    </div>
+    <div class="max-w-lg border-sky-200 rounded-xl mx-auto shadow-md font-inter p-5 my-5">
+      <label for="email">
+        <span class=" block font-semibold mb-1 text-slate-700 after:content-['*'] after:text-pink-700">Email</span>
+        <input type="email" id="email" placeholder="masukkan Email .." class="px-3 py-2 border shadow w-full block text-sm rounded 
+          placeholder:text-slate-700 focus:outline-none focus:ring-1 focus:border-sky-600 invalid:text-red-500 invalid:focus:ring-red-700 invalid:focus:border-red-700 peer
+          ">
+        <p class="text-sm m-1 text-red-500 invisible peer-invalid:visible">Email Tidak Valid!!</p>
+        </label>
+    </div>
+    <div class="my-10 max-w-3xl mx-auto">
+      <h1 class=" p-2 text-4xl text-center font-bold underline">
+          Belajar Transform & Transition
+      </h1>
+    </div>
+    <div class="w-48 h-40 bg-sky-500 mx-auto rounded-lg shadow-lg hover:scale-125 hover:rotate-45
+      hover:translate-x-45 hover:bg-pink-600 transition">
+    </div>
+    <div class="w-48 h-40 bg-sky-500 mx-auto rounded-lg shadow-lg hover:scale-125 hover:rotate-90
+       hover:bg-lime-600 transition origin-top-left mt-28">
+    </div>
+    <div class="group w-48 h-40 bg-yellow-500 mx-auto mt-28 ">
+      <div class="w-full h-full bg-sky-500 rounded-lg shawdow-lg group-hover:rotate-180 origin-top-left transition duration-1000">
+      </div>
+    </div>
+    <div class="my-10 max-w-3xl mx-auto">
+      <h1 class=" p-2 text-4xl text-center font-bold underline">
+          Belajar Animation 
+      </h1>
+    </div>
+    <div class="w-48 h-40 bg-purple-500 mx-auto rounded-lg shadow-lg animate-spin-slow ">
+    </div>
+    <div class="w-48 h-40 bg-cyan-500 mx-auto rounded-full shadow-lg animate-bounce mt-20">
+    </div>
+    <div class="w-48 h-40 bg-green-500 mx-auto rounded-full shadow-lg animate-wiggle mt-20">
+    </div>
+
+    <div class="w-48"></div>
+    
+    <div class="mb-96"></div>
+
+  </section>
+
+  <script>
+    const checkbox = document.querySelector
+    ('#toggle');
+    const html = document.querySelector('html');
+
+    checkbox.addEventListener('click', function()
+    {
+      checkbox.checked ? html.classList.add('dark') : html.classList.remove('dark');
+    })
+  </script>
+
+</body>
+</html>
