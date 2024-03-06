@@ -1,0 +1,267 @@
+<!doctype html>
+<html class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    tailwind.config = {
+    }
+  </script>
+  <style type="text/tailwindcss">
+    #toggle:checked ~ label div.toggle-circle {
+      @apply translate-x-3;
+    }
+  </style>
+</head>
+<body class="dark:bg-slate-900 dark:text-sky-100">
+
+  <section class="pt-5">
+    <div class="flex justify-end p-3">
+      <span class="mr-1">Light</span>
+      <input type="checkbox" id="toggle" class="hidden">
+      <label for="toggle">
+        <div class="w-9 h-5 bg-slate-500 rounded-full flex items-center p-1 cursor-pointer">
+          <div class="w-4 h-4 bg-white rounded-full toggle-circle"></div>
+        </div>
+      </label>
+      <span class="ml-1">Dark</span>
+    </div>
+    <div class="max-w-3xl mx-auto">
+        <h1 class="p-2 text-4xl text-center font-bold underline bg-gradient-to-b from-zinc-500 via-sky-500 to-zinc-500
+          bg-clip-text text-transparent">
+          Belajar Tailwind CSS
+        </h1>
+        <p class="p-1 font-inter text-center text-white text-[17px] bg-[#42a6e9]">
+            kerangka kerja (framework) CSS yang di dalamnya terdapat sekumpulan utility classes untuk membangun antarmuka kustom dengan cepat
+        </p>
+    </div>
+  </section>
+  <div class="opacity-95 rounded-lg shadow-xl shadow-blue-600 my-10 max-w-xl h-96 bg-blue-200 mx-auto bg-cover bg-center" style="background-image: url('./img/download.png');">
+  </div>
+  <section class="my-10">
+    <div class="max-w-3xl mx-auto">
+        <h1 class=" p-2 text-4xl text-center font-bold underline">
+            Belajar Layouting
+        </h1>
+        <p class="p-1 font-inter text-center text-blue-500 text-[17px]">
+          Layouting seperti Aspect Ratio,
+          Container,
+          Columns,
+          Break After,
+          Break Before,
+          Break Inside,
+          Box Decoration Break,
+          Box Sizing,
+          Display,
+          Floats,
+          Clear,
+          Isolation,
+          Object Fit,
+          Object Position,
+          Overflow,
+          Overscroll Behavior,
+          Position,
+          Top / Right / Bottom / Left,
+          Visibility,
+          Z-Index,
+        </p>
+    </div>
+    <div class="container mx-auto my-10">
+      <div class="border rounded-lg shadow p-10 relative">
+        <div class="w-10 h-10 bg-red-300 rounded-full flex absolute -top-5 right-1/2 -translate-x-1/2 cursor-pointer">
+          <span class="text m-auto">❌</span>
+        </div>
+        <div class="w-10 h-10 bg-sky-300 rounded-full flex fixed bottom-5 right-5 cursor-pointer">
+          <a href="#" class="text m-auto">🔝</a>
+        </div>
+        <img src="img/download.png" alt="tailwindcss" width="150" class="float-left mr-4">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo ad repellat consectetur architecto quidem sapiente consequuntur aliquid repellendus! Voluptates maiores, expedita autem quae pariatur aut corrupti Nostrud quis commodo cupidatat cillum veniam dolor consequat exercitation pariatur ad velit. Cillum laboris duis nisi reprehenderit dolore sint ipsum qui veniam cupidatat ut anim ipsum. Esse sit consequat dolore aliquip velit anim culpa duis fugiat ullamco aliquip occaecat. Sunt nulla esse do veniam minim sint. Fugiat do dolore sunt veniam et nisi officia anim deserunt Lorem occaecat ipsum ea minim. Occaecat tempor in laboris dolore cupidatat quis dolor laborum veniam aliqua excepteur magna.
+
+          Eu sint et dolore nostrud ea ad amet nisi incididunt anim. Laborum ullamco anim labore consectetur anim ut qui ipsum enim aliquip adipisicing. Elit in enim dolore cillum non sunt nisi excepteur irure. Ut labore cupidatat excepteur et commodo ea in. Nulla reprehenderit tempor eu ad velit. Nulla nisi officia enim commodo. Aute non labore est sint tempor commodo ut culpa elit id. rerum qui odit doloribus. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic eveniet autem necessitatibus temporibus eos vitae illum quia atque expedita culpa deleniti, quod quasi sunt delectus ratione non aperiam recusandae! Nemo.
+        </p>
+      </div>
+    </div>
+    <div class="border rounded-lg shadow p-10 container mx-auto my-10 columns-3">
+      <img src="https://source.unsplash.com/600x400?natural" alt="Image" class="mb-4">
+      <img src="https://source.unsplash.com/600x400?ocean" alt="Image" class="mb-4">
+      <img src="https://source.unsplash.com/600x400?natural" alt="Image" class="mb-4">
+      <img src="https://source.unsplash.com/600x400?ocean" alt="Image" class="mb-4">
+      <img src="https://source.unsplash.com/600x400?natural" alt="Image" class="mb-4">
+      <img src="https://source.unsplash.com/600x400?ocean" alt="Image" class="mb-4">
+    </div>
+
+  </section>
+    <hr class="my-14 border-t-4">
+    
+    <div class="container px-6 font-inter mx-auto max-w-md sm:max-w-xl md:max-w-5xl lg:flex lg:max-w-full
+    lg:p-0">
+      <div class="lg:p-12 lg:flex-1">
+        <h3 class="text-4xl font-bold text-slate-800 sm:max-w-xl md:text-4xl">Muhammad Nurdinnullah</h3>
+        <img class="mt-4 rounded-xl shadow-xl 
+        sm:mt-6 sm:h-64 sm:w-full sm:object-cover sm:object-center lg:hidden" src="img/tailwind-thumb.jpg" alt="tailwind">
+        <h2 class="mt-6 text-2xl font-semibold text-slate-800">mari Belajar tailwindcss 
+          <span class="text-sky-500 sm:text-sky-700"> Responsive Design </span> 
+          bersama WPU
+        </h2>
+        <p class="mt-2 text-slate-600 sm:mt-4 sm:text-xl">
+          Duis officia pariatur id laboris qui consectetur minim reprehenderit Lorem ad enim commodo Lorem et. Duis magna veniam cillum duis labore nostrud incididunt. Tempor ex exercitation do tempor proident tempor ad ipsum voluptate eu esse non commodo. In dolore voluptate pariatur pariatur ex. Enim sunt dolor minim fugiat.
+        </p>
+        <div class="mt-4 sm:mt-6">
+          <a href="#" class="inline-block px-5 py-3 bg-red-600 rounded-lg shadow-lg text-white uppercase font-semibold tracking-wider text-sm
+          sm-text-base">Follow Saya Disini</a>
+        </div>
+      </div>
+      <div class="hidden lg:flex lg:w-1/2">
+        <img src="img/download.png" alt="Image" class="object-cover rounded-l-3xl">
+      </div>
+    </div>
+
+    <h2 class="mt-24 mb-10 text-center font-bold text-3xl text-slate-700">
+      My Photo
+    </h2>
+
+    <div class="container mx-auto px-6 font-inter sm:flex sm:flex-wrap sm:gap-6 sm:justify-evenly">
+      <div class="rounded-md shadow-lg overflow-hidden mb-10 sm:w-64 md:w-80 sm:mb-0 lg:w-72 bg-white">
+        <img src="https://source.unsplash.com/600x400?ocean" alt="Image" 
+        class="w-full">
+        <div class="px-6 py-4">
+          <div class="font-bold text-xl mb-2 text-slate-600">
+            Image Title</div>
+          <p class="text-sm text-slate-600">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis maxime consequuntur, libero atque perferendis dolore odit. Dolore eaque inventore saepe quas numquam alias sed eligendi, optio quaerat sit nihil cum.
+          </p>
+        </div>
+      </div>
+      <div class="rounded-md shadow-lg overflow-hidden mb-10 sm:w-64 md:w-80 sm:mb-0 lg:w-72 bg-white">
+        <img src="https://source.unsplash.com/600x400?ocean" alt="Image" 
+        class="w-full">
+        <div class="px-6 py-4">
+          <div class="font-bold text-xl mb-2 text-slate-600">
+            Image Title</div>
+          <p class="text-sm text-slate-600">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis maxime consequuntur, libero atque perferendis dolore odit. Dolore eaque inventore saepe quas numquam alias sed eligendi, optio quaerat sit nihil cum.
+          </p>
+        </div>
+      </div>
+      <div class="rounded-md shadow-lg overflow-hidden mb-10 sm:w-64 md:w-80 sm:mb-0 lg:w-72 bg-white">
+        <img src="https://source.unsplash.com/600x400?ocean" alt="Image" 
+        class="w-full">
+        <div class="px-6 py-4">
+          <div class="font-bold text-xl mb-2 text-slate-600">
+            Image Title</div>
+          <p class="text-sm text-slate-600">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis maxime consequuntur, libero atque perferendis dolore odit. Dolore eaque inventore saepe quas numquam alias sed eligendi, optio quaerat sit nihil cum.
+          </p>
+        </div>
+      </div>
+      <div class="rounded-md shadow-lg overflow-hidden mb-10 sm:w-64 md:w-80 sm:mb-0 lg:w-72 bg-white">
+        <img src="https://source.unsplash.com/600x400?ocean" alt="Image" 
+        class="w-full">
+        <div class="px-6 py-4">
+          <div class="font-bold text-xl mb-2 text-slate-600">
+            Image Title</div>
+          <p class="text-sm text-slate-600">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis maxime consequuntur, libero atque perferendis dolore odit. Dolore eaque inventore saepe quas numquam alias sed eligendi, optio quaerat sit nihil cum.
+          </p>
+        </div>
+      </div>
+      <div class="rounded-md shadow-lg overflow-hidden mb-10 sm:w-64 md:w-80 sm:mb-0 lg:w-72 bg-white">
+        <img src="https://source.unsplash.com/600x400?ocean" alt="Image" 
+        class="w-full">
+        <div class="px-6 py-4">
+          <div class="font-bold text-xl mb-2 text-slate-600">
+            Image Title</div>
+          <p class="text-sm text-slate-600">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis maxime consequuntur, libero atque perferendis dolore odit. Dolore eaque inventore saepe quas numquam alias sed eligendi, optio quaerat sit nihil cum.
+          </p>
+        </div>
+      </div>
+      <div class="rounded-md shadow-lg overflow-hidden mb-10 sm:w-64 md:w-80 sm:mb-0 lg:w-72 bg-white">
+        <img src="https://source.unsplash.com/600x400?ocean" alt="Image" 
+        class="w-full">
+        <div class="px-6 py-4">
+          <div class="font-bold text-xl mb-2 text-slate-600">
+            Image Title</div>
+          <p class="text-sm text-slate-600">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis maxime consequuntur, libero atque perferendis dolore odit. Dolore eaque inventore saepe quas numquam alias sed eligendi, optio quaerat sit nihil cum.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="my-14 border-t-4">
+
+    <div class="p-2 font-inter grid grid-cols-2 gap-2 md:grid-cols-4 md:p-4">
+      <h2 class=" h-15 text-xl font-semibold text-slate-700 md:col-start-4 md:row-start-2 md:flex"><span class="self-center">welcome</span></h2>
+      <div class="h-15 text-lg font-bold md:col-start-2 md:row-start-2 md:flex"><span class="self-center">@dinnul</span></div>
+
+      <div class="h-15 bg-blue-500 aspect-[4/3] rounded-lg md:aspect-[3/4] xl:aspect-[4/3] overflow-hidden group relative hover:scale-95 transition-all duration-500 ">
+        <div class="w-full h-full bg-[url('https://source.unsplash.com/640x480?ocean')] bg-cover bg-center absolute group-hover:scale-125 transition-all duration-500">
+          
+        </div>
+      </div>
+      <div class=" md:col-start-3 h-15 bg-blue-500 aspect-[4/3] rounded-lg md:aspect-[3/4] xl:aspect-[4/3] overflow-hidden group relative hover:scale-95 transition-all duration-500">
+        
+      </div>
+      <div class="h-15 bg-blue-500 aspect-[4/3] rounded-lg md:aspect-[3/4] xl:aspect-[4/3] overflow-hidden group relative hover:scale-95 transition-all duration-500">
+        
+      </div>
+      <div class="h-15 bg-blue-500 aspect-[4/3] rounded-lg md:aspect-[3/4] xl:aspect-[4/3] overflow-hidden group relative hover:scale-95 transition-all duration-500">
+        <div class="w-full h-full bg-[url('https://source.unsplash.com/640x480?football')] bg-cover bg-center absolute group-hover:scale-125 transition-all duration-500">
+        </div>
+      </div>
+      <div class="h-15 bg-blue-500 aspect-[4/3] rounded-lg md:aspect-[3/4] xl:aspect-[4/3] overflow-hidden group relative hover:scale-95 transition-all duration-500 ">
+        <div class="w-full h-full bg-[url('https://source.unsplash.com/640x480?boy')] bg-cover bg-center absolute group-hover:scale-125 transition-all duration-500">
+        </div>
+      </div>
+      <div class=" md:col-start-2 h-15 bg-blue-500 aspect-[4/3] rounded-lg md:aspect-[3/4] xl:aspect-[4/3] overflow-hidden group relative hover:scale-95 transition-all duration-500">
+        <div class="w-full h-full bg-[url('https://source.unsplash.com/640x480?water')] bg-cover bg-center absolute group-hover:scale-125 transition-all duration-500">
+        </div>
+      </div>
+      <div class=" md:col-start-4 h-15 bg-blue-500 aspect-[4/3] rounded-lg md:aspect-[3/4] xl:aspect-[4/3] overflow-hidden group relative hover:scale-95 transition-all duration-500">
+        <div class="w-full h-full bg-[url('https://source.unsplash.com/640x480?crypto')] bg-cover bg-center absolute group-hover:scale-125 transition-all duration-500">
+        </div>
+      </div>
+      <div class="h-15 bg-blue-500 aspect-[4/3] rounded-lg md:aspect-[3/4] xl:aspect-[4/3] overflow-hidden group relative hover:scale-95 transition-all duration-500 ">
+        <div class="w-full h-full bg-[url('https://source.unsplash.com/640x480?girl')] bg-cover bg-center absolute group-hover:scale-125 transition-all duration-500">
+        </div>
+      </div>
+      <div class=" md:col-start-3 h-15 bg-blue-500 aspect-[4/3] rounded-lg md:aspect-[3/4] xl:aspect-[4/3] overflow-hidden group relative hover:scale-95 transition-all duration-500">
+        <div class="w-full h-full bg-[url('https://source.unsplash.com/640x480?men')] bg-cover bg-center absolute group-hover:scale-125 transition-all duration-500">
+        </div>
+      </div>
+      <div class=" md:col-start-3 h-15 bg-blue-500 aspect-[4/3] rounded-lg md:aspect-[3/4] xl:aspect-[4/3] overflow-hidden group relative hover:scale-95 transition-all duration-500">
+        <div class="w-full h-full bg-[url('https://source.unsplash.com/640x480?women')] bg-cover bg-center absolute group-hover:scale-125 transition-all duration-500">
+        </div>
+      </div>
+    </div>
+
+    <hr class="my-14 border-t-4">
+
+    <h1 class="">Belajar Functions & Directives</h1>
+
+    <div class="w-48"></div>
+    
+    <div class="mb-96"></div>
+
+
+
+  <script>
+    const checkbox = document.querySelector
+    ('#toggle');
+    const html = document.querySelector('html');
+
+    checkbox.addEventListener('click', function()
+    {
+      checkbox.checked ? html.classList.add('dark') : html.classList.remove('dark');
+    })
+  </script>
+
+</body>
+</html>
