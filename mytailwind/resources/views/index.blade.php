@@ -12,7 +12,7 @@
         document.documentElement.classList.remove('dark');
       }
     </script>
-    @vite(['resources/css/app.css','resources/js/app.js'])
+    @vite(['resources/css/final.css','resources/js/app.js', 'resources/js/script.js'])
   </head>
   <body>
     <!-- Header Start -->
@@ -78,7 +78,7 @@
         <div class="flex flex-wrap">
           <div class="w-full self-center px-4 lg:w-1/2">
             <h1 class="text-base font-semibold text-primary md:text-xl">Halo Semua 👋, saya <span class="mt-1 block text-4xl font-bold text-dark dark:text-white lg:text-5xl">Muhammad Nurdinnullah</span></h1>
-            <h2 class="mb-5 text-lg font-medium text-secondary lg:text-2xl">Lecturer & <span class="text-dark dark:text-white">Content Creator</span></h2>
+            <h2 class="mb-5 text-lg font-medium text-secondary lg:text-2xl">Web development & <span class="text-dark dark:text-white">Student</span></h2>
             <p class="mb-10 font-medium leading-relaxed text-secondary">Belajar web programming itu mudah dan menyenangkan bukan. <span class="font-bold text-dark dark:text-white">bukan!</span></p>
 
             <a href="#" class="rounded-full bg-primary py-3 px-8 text-base font-semibold text-white transition duration-300 ease-in-out hover:opacity-80 hover:shadow-lg">Hubungi Saya</a>
@@ -89,7 +89,7 @@
               <span class="absolute bottom-0 left-1/2 -translate-x-1/2 md:scale-125">
                 <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                   <path
-                    fill="#ec4899"
+                    fill="#f59e0b"
                     d="M47.4,-51C59.2,-35.6,65.1,-17.8,63.4,-1.7C61.7,14.5,52.6,28.9,40.8,36.6C28.9,44.2,14.5,45,-2,47C-18.4,49,-36.8,52.1,-45.4,44.5C-53.9,36.8,-52.5,18.4,-51.2,1.3C-49.9,-15.8,-48.7,-31.7,-40.2,-47.1C-31.7,-62.4,-15.8,-77.3,1,-78.3C17.8,-79.2,35.6,-66.3,47.4,-51Z"
                     transform="translate(100 100) scale(1.1)"
                   />
@@ -119,7 +119,7 @@
             <div class="flex items-center">
               <!-- Youtube -->
               <a
-                href="#"
+                href="https://youtube.com/webprogrammingunpas"
                 target="_blank"
                 class="mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 text-slate-300 hover:border-primary hover:bg-primary hover:text-white"
               >
@@ -209,28 +209,28 @@
         <div class="flex w-full flex-wrap justify-center px-4 xl:mx-auto xl:w-10/12">
           <div class="mb-12 p-4 md:w-1/2">
             <div class="overflow-hidden rounded-md shadow-md">
-              <img src="{{ asset('./img/1project.jpeg') }}" alt="Landing Page" width="w-full" />
+              <img src="{{ asset('./img/portfolio/1project.jpeg') }}" alt="Landing Page" width="w-full" />
             </div>
             <h3 class="mt-5 mb-3 text-xl font-semibold text-dark dark:text-white">Landing Page Muhammad Nurdinnullah</h3>
             <p class="text-base font-medium text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, iusto! Aliquam, corporis.</p>
           </div>
           <div class="mb-12 p-4 md:w-1/2">
             <div class="overflow-hidden rounded-md shadow-md">
-              <img src="{{ asset('./img/1project.jpeg') }}" alt="E-Commerce" width="w-full" />
+              <img src="{{ asset('./img/portfolio/1project.jpeg') }}" alt="E-Commerce" width="w-full" />
             </div>
             <h3 class="mt-5 mb-3 text-xl font-semibold text-dark dark:text-white">E-Commerce</h3>
             <p class="text-base font-medium text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, iusto! Aliquam, corporis.</p>
           </div>
           <div class="mb-12 p-4 md:w-1/2">
             <div class="overflow-hidden rounded-md shadow-md">
-              <img src="{{ asset('./img/1project.jpeg') }}" alt="Technical Documentation" width="w-full" />
+              <img src="{{ asset('./img/portfolio/1project.jpeg') }}" alt="Technical Documentation" width="w-full" />
             </div>
             <h3 class="mt-5 mb-3 text-xl font-semibold text-dark dark:text-white">Technical Documentation</h3>
             <p class="text-base font-medium text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, iusto! Aliquam, corporis.</p>
           </div>
           <div class="mb-12 p-4 md:w-1/2">
             <div class="overflow-hidden rounded-md shadow-md">
-              <img src="{{ asset('./img/1project.jpeg') }}" alt="Tribute Page" width="w-full" />
+              <img src="{{ asset('./img/portfolio/1project.jpeg') }}" alt="Tribute Page" width="w-full" />
             </div>
             <h3 class="mt-5 mb-3 text-xl font-semibold text-dark dark:text-white">Tribute Page</h3>
             <p class="text-base font-medium text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, iusto! Aliquam, corporis.</p>
@@ -254,16 +254,16 @@
         <div class="w-full px-4">
           <div class="flex flex-wrap items-center justify-center">
             <a href="#" class="mx-4 max-w-[120px] py-4 opacity-60 grayscale transition duration-500 hover:opacity-100 hover:grayscale-0 lg:mx-6 xl:mx-8">
-              <img src="#" alt="" />
+              <img src="{{ asset('./img/clients/google.svg') }}" alt="Google" />
             </a>
             <a href="#" class="mx-4 max-w-[120px] py-4 opacity-60 grayscale transition duration-500 hover:opacity-100 hover:grayscale-0 lg:mx-6 xl:mx-8">
-              <img src="#" alt="" />
+              <img src="{{ asset('./img/clients/gojek.svg') }}" alt="Gojek" />
             </a>
             <a href="#" class="mx-4 max-w-[120px] py-4 opacity-60 grayscale transition duration-500 hover:opacity-100 hover:grayscale-0 lg:mx-6 xl:mx-8">
-              <img src="#" alt="" />
+              <img src="{{ asset('./img/clients/tokopedia.svg') }}" alt="Tokopedia" />
             </a>
             <a href="#" class="mx-4 max-w-[120px] py-4 opacity-60 grayscale transition duration-500 hover:opacity-100 hover:grayscale-0 lg:mx-6 xl:mx-8">
-              <img src="#" alt="" />
+              <img src="{{ asset('./img/clients/traveloka.svg') }}" alt="traveloka" />
             </a>
           </div>
         </div>
@@ -366,7 +366,7 @@
             <h2 class="mb-5 text-4xl font-bold text-white">WPU</h2>
             <h3 class="mb-2 text-2xl font-bold">Hubungi Kami</h3>
             <p>muhammadnurdinnullah@gmail.com</p>
-            <p>Jl. CIkunir Raya No.43</p>
+            <p>Jl. Cikunir Raya NO.43</p>
             <p>Bekasi</p>
           </div>
           <div class="mb-12 w-full px-4 md:w-1/3">
@@ -412,7 +412,7 @@
           <div class="mb-5 flex items-center justify-center">
             <!-- Youtube -->
             <a
-              href="#"
+              href="https://youtube.com/webprogrammingunpas"
               target="_blank"
               class="mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 text-slate-300 hover:border-primary hover:bg-primary hover:text-white"
             >
