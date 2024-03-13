@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\BlogController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/blog-admin', [BlogController::class  ,'index']);
+Route::get('/blog-admin/create', [BlogController::class  ,'create']);
+Route::get('/blog-admin/{id}/show', [BlogController::class  ,'show']);
