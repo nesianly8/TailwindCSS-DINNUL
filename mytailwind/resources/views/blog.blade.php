@@ -50,6 +50,11 @@
 
 {{-- END SIDE BAR --}}
 
+@if(session()->has('success'))
+  <div class="alert alert-success" role="alert">
+      {{ session('success') }}
+  </div>
+@endif
 
 {{-- CONTENT  --}}
 
@@ -87,10 +92,13 @@
                         <th scope="col" class="px-6 py-3">
                             <span class="sr-only">Edit</span>
                         </th>
+                        <th scope="col" class="px-6 py-3">
+                            <span class="sr-only">Delete</span>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($blog as $blogs)
+                  @foreach($blog as $blogs)
                     <tr class="text-slate-600 border-t-2 border-slate-400">
                         <td class="pl-7">{{ $loop->iteration }}</td>
                         <td class="pr-7">{{ $blogs->title }}</td>
@@ -98,8 +106,19 @@
                         <td class="pr-7">
                             <a href="/blog-admin/{{ $blogs->id }}/show" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Show</a>
                         </td>
+                        <td class="pr-7">
+                            <form action="{{ route('destroy', $blogs->id) }}" method="post" class="d-inline">
+                                @method('delete')
+                                @csrf
+                                <button class="text-red-600 inline-flex items-center hover:text-white border border-red-600 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900" onclick="return confirm('Are You Sure?')">
+                                    <i class="bi bi-x-circle"></i>
+                                    <svg class="w-5 h-5 mr-1 -ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+                                    Delete
+                                </button>
+                            </form>
+                        </td>
                     </tr>
-                @endforeach
+                  @endforeach
                 </tbody>
             </table>
         </div>

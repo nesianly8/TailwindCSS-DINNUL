@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
+    <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
     <title>Create Blog</title>
     @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
@@ -60,36 +62,53 @@
         <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Create Blog</span>
     </a>
 
-
-    <form class="max-w-2xl mx-auto border-2 border-slate-400 shadow-lg rounded-lg p-10">
+    <form method="post" action="{{ route('store') }}" class="max-w-2xl mx-auto border-2 border-slate-400 shadow-lg rounded-lg p-10" enctype="multipart/form-data">
+      @csrf
         <div class="mb-5">
             <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
-            <input type="text" id="title" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Ex. Lorem ipsum dolor sit amet consectetur" required />
+            <input type="text" id="title" name="title" placeholder="Ex. Lorem ipsum dolor sit amet consectetur" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 @error('title') is-invalid @enderror" required />
+            @error('title')
+                <div class="invalid-feedback">
+                {{ $message }}
+                </div>
+            @enderror
         </div>
         <div class="mb-5">
-            <label for="large-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your slug</label>
-            <textarea type="text" id="large-input" cols="30" rows="5" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="sunt maiores harum illum at iure quo iusto vel? Eos magnam eligendi earum nostrum, ducimus omnis!"></textarea>
+            <label for="slug" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your slug</label>
+            <textarea type="text" id="slug" name="slug" cols="30" rows="5" placeholder="sunt maiores harum illum at iure quo iusto vel? Eos magnam eligendi earum nostrum, ducimus omnis!" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 @error('slug') is-invalid @enderror"></textarea>
+            @error('slug')
+            <div class="invalid-feedback">
+              {{ $message }}
+            </div>
+          @enderror
         </div>
 
         <div class="mb-5">
-            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Upload Image</label>
-            <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
-            <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">A picture is useful to confirm your are blog</div>
+            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="image">Upload Image</label>
+            <img class="img-preview img-fluid mb-3 col-sm-5">
+            <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 @error('image') is-invalid @enderror" type="file" id="image" name="image" onchange="previewImage()">
+            <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="image">A picture is useful to confirm your are blog</div>
+            @error('image')
+              <div class="invalid-feedback">
+                {{ $message }}
+              </div>
+            @enderror
         </div>
 
         <div class="mb-5">
-            <label for="body" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your body</label>
-            <input type="text" id="body" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Ex. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore aut necessitatibus doloremque. Deserunt culpa, sunt maiores harum illum at iure quo iusto vel? Eos magnam eligendi earum nostrum, ducimus omnis!" required />
-        </div>
-        <div class="flex items-center space-x-4">
-            <button type="submit" class="text-white bg-button-700 hover:bg-button-800 focus:ring-4 focus:outline-none focus:ring-button-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-button-600 dark:hover:bg-button-700 dark:focus:ring-button-800">
-                Update product
-            </button>
-            <button type="button" class="text-red-600 inline-flex items-center hover:text-white border border-red-600 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
-                <svg class="w-5 h-5 mr-1 -ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
-                Delete
-            </button>
-        </div>
+            <label for="body" class="form-label">Body</label>
+            @error('body')
+              <p class="text-danger">
+                {{ $message }}
+              </p>
+            @enderror
+              <input id="body" type="hidden" name="body" placeholder="Ex. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore aut necessitatibus doloremque. Deserunt culpa, sunt maiores harum illum at iure quo iusto vel? Eos magnam eligendi earum nostrum, ducimus omnis!" required>
+              <trix-editor input="body"></trix-editor>
+          </div>
+
+          <button type="submit" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+            Create Blog
+          </button>
     </form>
 
 
@@ -98,6 +117,28 @@
 
 {{-- END CONTENT  --}}
 
+<script>
 
+    document.addEventListener('trix-file-accept', function(e) {
+      e.preventDefault();
+    })
+
+    function previewImage(){
+    const image = document.querySelector('#image');
+    const imgPreview = document.querySelector('.img-preview');
+
+    imgPreview.style.display = 'block';
+
+    const oFReader = new FileReader();
+    oFReader.readAsDataURL(image.files[0]);
+
+    oFReader.onload = function(oFREvent) {
+      imgPreview.src = oFREvent.target.result;
+    }
+
+    }
+
+
+</script>
 </body>
 </html>

@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Blog;
-
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class BlogController extends Controller
 {
@@ -14,21 +15,95 @@ class BlogController extends Controller
         return view('blog', [
             'blog' => $blog ,
         ]);
+        
     }
 
     public function create() {
-        $blog = Blog::all();
 
         return view('blog-create', [
-            'blog' => $blog ,
+            'Blog' => Blog::all()
         ]);
+
+    }
+    
+
+    public function store(Request $request)
+    {
+
+        $validatedData = [
+            'title' => $request->input('title'),
+            'slug' => $request->input('slug'),
+            'image' => $request->input('image'),
+            'body' => $request->input('body'),
+        ];
+
+        if($request->file('image')) {
+            $validatedData['image'] = $request->file('image')->store('blog-images');
+        }
+
+        Blog::create($validatedData);
+
+        return redirect('/blog-admin')->with('success', 'New Post Has Been Added');
     }
 
-    public function show() {
-        $blog = Blog::all();
 
+    public function show($id)
+    {
+        $blog = Blog::findOrFail($id); // Mengambil data blog berdasarkan ID
+        
         return view('blog-show', [
-            'blog' => $blog ,
+            'blog' => $blog
         ]);
     }
+    
+
+    public function update(Request $request, $id)
+    {
+        $blog = Blog::findOrFail($id); 
+
+        $rules = [
+            'title' => 'required|string',
+            'slug' => 'required|string',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Adjust the validation rules for the image
+            'body' => 'required|string',
+        ];
+    
+        $validatedData = $request->validate($rules);
+    
+        // Handling image upload
+        if ($request->hasFile('image')) {
+            // Delete old image if exists
+            if ($blog->image) {
+                Storage::delete($blog->image);
+            }
+            // Store new image
+            $validatedData['image'] = $request->file('image')->store('blog-images');
+        } else {
+            // If no new image is uploaded, keep the old image
+            $validatedData['image'] = $blog->image;
+        }
+    
+        // Update the blog post
+        $blog->update($validatedData);
+    
+        return redirect('/blog-admin')->with('success', 'Post Has Been Updated');
+    }
+    
+    
+    
+
+    public function destroy($id)
+    {
+        $blog = Blog::findOrFail($id);
+    
+        if($blog->image){
+            Storage::delete($blog->image);
+        }
+    
+        $blog->delete();
+    
+        return redirect('/blog-admin')->with('success', 'Post Has Been Deleted!');
+    }
+    
+    
 }
