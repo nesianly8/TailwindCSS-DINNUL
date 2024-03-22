@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\IndexController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,10 +14,13 @@ use App\Http\Controllers\BlogController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
 
+Route::get('/', [IndexController::class  ,'index']);
+Route::get('/blog/{slug}/show', [IndexController::class, 'blogShow'])->name('blogShow');
+Route::get('/blog/blog{id}', [BlogController::class  ,'blog']);
 Route::get('/blog-admin', [BlogController::class  ,'index']);
 Route::get('/blog-admin/create', [BlogController::class  ,'create']);
 Route::post('/blog-admin/store', [BlogController::class, 'store'])->name('store');
