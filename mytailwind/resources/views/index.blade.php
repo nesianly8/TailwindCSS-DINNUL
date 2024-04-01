@@ -12,63 +12,84 @@
         document.documentElement.classList.remove('dark');
       }
     </script>
-    @vite(['resources/css/final.css','resources/js/app.js', 'resources/js/script.js'])
+    <style>
+        /* Style the header: fixed position (always stay at the top) */
+        .header {
+        position: fixed;
+        top: 0;
+        z-index: 1;
+        width: 100%;
+        background-color: #f1f1f1;
+        }
+
+        /* The progress container (grey background) */
+        .progress-container {
+        width: 100%;
+        height: 8px;
+        background: #ccc;
+        }
+
+        /* The progress bar (scroll indicator) */
+        .progress-bar {
+        height: 8px;
+        background: #04AA6D;
+        width: 0%;
+        }
+
+    </style>
+    @vite(['resources/css/app.css','resources/js/app.js'])
   </head>
   <body>
-    <!-- Header Start -->
-    <header class="absolute top-0 left-0 z-10 flex w-full items-center bg-transparent">
-      <div class="container">
-        <div class="relative flex items-center justify-between">
-          <div class="px-4">
-            <a href="#home" class="block py-6 text-lg font-bold text-primary">Muhammad Nurdinnullah</a>
-          </div>
-          <div class="flex items-center px-4">
-            <button id="hamburger" name="hamburger" type="button" class="absolute right-4 block lg:hidden">
-              <span class="hamburger-line origin-top-left transition duration-300 ease-in-out"></span>
-              <span class="hamburger-line transition duration-300 ease-in-out"></span>
-              <span class="hamburger-line origin-bottom-left transition duration-300 ease-in-out"></span>
-            </button>
 
-            <nav
-              id="nav-menu"
-              class="absolute right-4 top-full hidden w-full max-w-[250px] rounded-lg bg-white py-5 shadow-lg dark:bg-dark dark:shadow-slate-500 lg:static lg:block lg:max-w-full lg:rounded-none lg:bg-transparent lg:shadow-none lg:dark:bg-transparent"
-            >
-              <ul class="block lg:flex">
+    <!-- Header Start -->
+    <header class="header fixed top-0 left-0 z-50 flex w-full items-center bg-slate-100 dark:bg-dark">
+        <div class="container">
+        <div class="relative flex items-center justify-between">
+            <div class="px-4">
+            <a href="#home" class="block py-6 text-lg font-bold text-primary">Muhammad Nurdinnullah</a>
+            </div>
+            <div class="flex items-center justify-between flex-grow px-4"> <!-- Updated here -->
+            <nav id="nav-menu"
+                class="absolute right-4 top-full hidden w-full max-w-[250px] rounded-lg bg-white py-5 shadow-lg dark:bg-dark dark:shadow-slate-500 lg:static lg:block lg:max-w-full lg:rounded-none lg:bg-transparent lg:shadow-none lg:dark:bg-transparent">
+                <ul class="block lg:flex items-center"> <!-- Updated here -->
                 <li class="group">
-                  <a href="#home" class="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white">Beranda</a>
+                    <a href="#home" class="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white">Beranda</a>
                 </li>
                 <li class="group">
-                  <a href="#about" class="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white">Tentang Saya</a>
+                    <a href="#about" class="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white">Tentang Saya</a>
                 </li>
                 <li class="group">
-                  <a href="#portfolio" class="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white">Portfolio</a>
+                    <a href="#portfolio" class="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white">Portfolio</a>
                 </li>
                 <li class="group">
-                  <a href="#clients" class="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white">Clients</a>
+                    <a href="#clients" class="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white">Clients</a>
                 </li>
                 <li class="group">
-                  <a href="#blog" class="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white">Blog</a>
+                    <a href="#blog" class="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white">Blog</a>
                 </li>
                 <li class="group">
-                  <a href="#contact" class="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white">Contact</a>
+                    <a href="#contact" class="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white">Contact</a>
                 </li>
                 <li class="mt-3 flex items-center pl-8 lg:mt-0">
-                  <div class="flex">
+                    <div class="flex"> <!-- Updated here -->
                     <span class="mr-2 text-sm text-slate-500">light</span>
                     <input type="checkbox" class="hidden" id="dark-toggle" />
                     <label for="dark-toggle">
-                      <div class="flex h-5 w-9 cursor-pointer items-center rounded-full bg-slate-500 p-1">
+                        <div class="flex h-5 w-9 cursor-pointer items-center rounded-full bg-slate-500 p-1">
                         <div class="toggle-circle h-4 w-4 rounded-full bg-white transition duration-300 ease-in-out"></div>
-                      </div>
+                        </div>
                     </label>
                     <span class="ml-2 text-sm text-slate-500">dark</span>
-                  </div>
+                    </div>
                 </li>
-              </ul>
+                </ul>
             </nav>
-          </div>
+            </div>
         </div>
-      </div>
+        <div class="progress-container">
+            <div class="progress-bar" id="myBar"></div>
+        </div>
+        </div>
     </header>
     <!-- Header End -->
 
@@ -475,6 +496,21 @@
     </a>
     <!-- Back to top End -->
 
-    <script src="dist/js/script.js"></script>
+ 
+    <script>
+        // Ketika halaman di-scroll, jalankan fungsi scrollIndicator
+        window.onscroll = function() {scrollIndicator()};
+      
+        function scrollIndicator() {
+          // Menghitung jumlah scroll yang telah dilakukan
+          var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+          var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          var scrolled = (winScroll / height) * 100;
+          // Update lebar progress-bar
+          document.querySelector(".progress-bar").style.width = scrolled + "%";
+        }
+    </script>
+    
+      
   </body>
 </html>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Blog;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use App\Events\BlogProcessed;
 
 class BlogController extends Controller
 {
@@ -34,7 +35,7 @@ class BlogController extends Controller
             'title' => $request->input('title'),
             'slug' => $request->input('slug'),
             'image' => $request->input('image'),
-            'body' => $request->input('body'),
+            'body' => strip_tags($request->input('body')),
         ];
 
         if($request->file('image')) {
@@ -78,6 +79,8 @@ class BlogController extends Controller
         ];
 
         $validatedData = $request->validate($rules);
+        // Clean HTML tags from body content
+        $validatedData['body'] = strip_tags($validatedData['body']);
 
         // Handling image upload
         if ($request->hasFile('image')) {
@@ -97,7 +100,6 @@ class BlogController extends Controller
 
         return redirect('/blog-admin')->with('success', 'Post Has Been Updated');
     }
-
 
 
     public function destroy($id)
