@@ -6,17 +6,20 @@ use Illuminate\Http\Request;
 use App\Models\Blog;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Cache;
 
 class IndexController extends Controller
 {
     public function index() {
-        $blog = Blog::all();
+        $blogs = Cache::remember('blogs', now()->addMinutes(5), function () {
+            return Blog::all();
+        });
 
         return view('index', [
-            'blogs' => $blog ,
+            'blogs' => $blogs,
         ]);
-
     }
+
 
     public function blogShow($slug)
     {
